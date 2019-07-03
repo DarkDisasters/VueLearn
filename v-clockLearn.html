@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id = "app">
+        <!-- v-cloak 克服网络过慢的插值表达式的闪烁问题 -->
+        <p v-cloak> {{ msg }} </p>
+        <h4 v-text='msg'></h4>
+        <!-- 默认v-text是没有闪烁问题，不过v-text只能解析msg，如果想在msg前后插值用这个就不行 -->
+        <!-- v-cloak和v-text都会将msg当作普通文本 -->
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>   
+        <!-- v-bind是Vue中用于绑定属性的指令 -->
+        <!-- <input type="button" value="按钮" v-bind:title="mytitle + '123'"> -->
+        <!-- v-bind的简写形式 -->
+        <input type="button" value="按钮" :title="mytitle + '123'">
+    </div>
+
+    
+
+    <script src="./lib/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123',
+                msg2: '<h1>我是一个h1</h1>',
+                mytitle: '这个一个自定义title'
+            },
+        })
+    </script>
+</body>
+</html>
