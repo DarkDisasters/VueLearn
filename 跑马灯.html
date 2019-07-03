@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src = './lib/vue.js'></script>
+    <!-- 
+        1 用v-on 给Move 按钮绑定一个时间
+        2 在按钮的事件处理函数中，写相关的业务逻辑代码
+        拿到msg字符串，进行截取操作调用字符串的substring方法，进行字符的截取放到最后一个位置
+        3 为了实现点击按钮自动截取的功能需要把 2 步骤的代码放到一个定时器中去
+     -->
+    <div id = "app">
+        <input type = "button" value = "浪起来" @click = "lang"></input>
+        <input type = "button" value = "hold住" @click = "stop"></input>
+        <h4 v-cloak>{{ msg }}</h4>
+
+    </div>
+
+    <script>
+        /* 在vm实例中， 如果想要获取data中的数据或想要调用methods中的方法必须通过
+        this.数据属性名或this.方法名来进行访问，这里的this表示new出来的实例
+        */
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Boom Sha Ka La Ka ',
+                intervalId: null,
+            },
+            methods:{
+                lang(){
+                    //var _this = this 
+                    //this
+
+                    //防止多次点击创建多个interval
+                    if(this.intervalId != null) return;
+                    
+                    this.intervalId = setInterval( () => { //将function去掉，用ES6的箭头函数，箭头函数内部的this指针和外部的this始终保持一致
+                        var start = this.msg.substring(0,1)
+                        var end = this.msg.substring(1)
+                        this.msg = end + start
+                    }, 400)
+
+                    // 注意： VM实例会监听自己身上的 data 中的所有数据的改变，只要一有数据改变了，就自动把最新的数据同步到页面上，我们只需要关心数据，不需要考虑数据重新渲染到DOM上
+                },
+
+                stop(){
+                    clearInterval(this.intervalId)
+                    this.intervalId = null
+                }
+            }
+        })
+    </script>
+</body>
+</html>
