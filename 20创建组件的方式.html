@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <script src = './lib/vue.js'></script>
+</head>
+<body>
+    <div id = 'app'>
+        <!--如果要使用组件，直接把组件的名称，以HTML的形式引入到页面中即可}-->
+        <!--注意如果用驼峰形式的命名， 要用横杠并取消大写-->
+        <!--如果不使用驼峰，则直接拿名称来使用-->
+        <my-coml></my-coml>
+    </div>
+    <script>
+        // // 1.1 使用 Vue.extend 来创建全局的Vue组件，指定了组件要展示的HTMl结构
+        // var coml = Vue.extend({
+        //     template: '<h3>这是Vue.extend 创建的组件</h3>'
+        // })
+
+        // // 1.2 使用 Vue.component('组件的名称', 创建出来的组件模板对象)
+        // Vue.component('myComl', coml)
+
+        Vue.component('myComl', Vue.extend({
+            template: '<h3>这是Vue.extend 创建的组件</h3>'
+        }))
+
+        var vm = new Vue({
+            el: '#app',  
+            data:{
+                
+            },
+            methods:{
+            },
+        })
+    </script>
+</body>
+</html>

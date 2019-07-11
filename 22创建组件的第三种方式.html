@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <script src = './lib/vue.js'></script>
+</head>
+<body>
+    <div id = 'app'>
+        <mycom3></mycom3>
+    </div>
+
+    <template id = "tmpl">
+        <div>
+            <h1>这是通过 template 元素，在外部定义的组件结构，这个方式，有代码的提示</h1>
+        </div>
+    </template>
+
+    <script>
+        Vue.component('mycom3', {
+            template: '#tmpl',
+        })
+
+        var vm = new Vue({
+            el: '#app',  
+            data:{
+                msg: 'Welcome'
+            },
+            methods:{
+            },
+        })
+    </script>
+</body>
+</html>
