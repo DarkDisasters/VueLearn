@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+     <!--css会发起二次请求，不推荐-->
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
 </head>
 <body>
     <!--注意：不推荐直接在这里引用任何包和任何css文件-->
@@ -18,7 +20,10 @@
     的根目录中,根本找不到这个打包好的 bundle.js -->
     <!-- 我们可以认为, webpack-dev-server 把打包好的文件,以一种虚拟的形式, 托管到了 项目的 根目录 中,虽然我们看不到,但是可以认为, 其和
     dist, src, node_module 平级,有一个看不见的文件叫做bundle.js -->
-    <script src = "/bundle.js"></script>
+
+    <!-- bundlejs是在内存中，但是html页面是在物理磁盘中，如何把html也放在内存中，安装 npm i html-webpack-plugin -D -->
+    <!--当使用html-webpack-plugin之后，我们不在需要手动处理bundle.js的引用路径了，因为这个插件已经帮我们创建了一个合适的script并且引用了正确路径-->
+    <!-- <script src = "/bundle.js"></script> -->
     <!--当使用html-webpack-plugin之后，我们不在需要手动处理bundle.js的引用路径了，因为这个插件已经帮我们创建了一个合适的script并且引用了正确路径-->
     <ul>
         <li>这是第1个li</li>
