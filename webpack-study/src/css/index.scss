@@ -1,6 +1,19 @@
 html, body{
     margin: 0;
     padding: 0;
+    .box{
+        width: 220px;
+        height: 120px;
+        //默认情况下，webpack无法处理css中的url地址，不管是图片还是字体库，只要是URL地址，都处理不了 cnpm i url-loader file-loader -D
+        background: url('../images/生小孩.jpg');
+        background-size: cover;
+    }
+    .box2{
+        width: 220px;
+        height: 120px;
+        background: url('../images2/生小孩.jpg');
+        background-size: cover;
+    }
 }
 
 li{

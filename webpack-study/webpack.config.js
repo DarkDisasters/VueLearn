@@ -21,14 +21,14 @@ module.exports = {
         path: path.join(__dirname, './dist'), 
         filename: 'bundle.js' 
     },
-    devServer:{
-        //配置dev-server命令参数的第二种形式，相对来说这种方式麻烦一些
-        // --open --port 3000 --contentBase src --hot
-        open: true,             //自动打开浏览器
-        port: 3000,             //设置启动时候的运行端口
-        contentBase: 'src',     //指定托管的根目录
-        hot: true               //启动热更新
-    },
+    // devServer:{
+    //     //配置dev-server命令参数的第二种形式，相对来说这种方式麻烦一些
+    //     // --open --port 3000 --contentBase src --hot
+    //     open: true,             //自动打开浏览器
+    //     port: 3000,             //设置启动时候的运行端口
+    //     contentBase: 'src',     //指定托管的根目录
+    //     hot: true               //启动热更新
+    // },
     plugins:[                   //配置插件的节点
         new webpack.HotModuleReplacementPlugin(),        //new一个人更新的模块对象， 这是启用热更新的第三步
         new htmlWebpackPlugin({                          //创建一个在 内存中 生成html 页面的插件
@@ -40,7 +40,12 @@ module.exports = {
         rules: [                //所有第三方匹配规则
             {test: /\.css$/, use: ['style-loader', 'css-loader']},    //以.css结尾的文件，$代表以这个结尾，\.的\是为了转义的作用, /配置.css文件的第三方loader规则
             {test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},
-            {test: /\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']}
+            {test: /\.scss$/, use:['style-loader', 'css-loader', 'sass-loader']},
+            {test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7630&name=[hash:8]-[name].[ext]'},     //处理图片路径阿url， 加个？代表传参
+            // limit 给定的值，是图片的大小，单位是 byte， 如果我们引用的 图片，
+            // 大于或等于给定的 limit值，则不会被转为base64格式的字符串， 如果 图片小于给定的 limit 值，则会被转为 base64的字符串
+            {test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader'},     // 处理字体文件的loader
+            {test: /\.js$/, use: 'babel-loader', exclude: /node_module/}  //配置Babel 来转换高级语法
         ]
     } 
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <script src = './lib/vue.js'></script>
+</head>
+<body>
+    <div id = 'app'>
+        <p>{{ msg }}</p>
+    </div>
+    <script>
+        var login = {
+            template: '<h1>这是登录组件</h1>'
+        }
+
+        var vm = new Vue({
+            el: '#app',  
+            data:{
+                msg: 'Welcome'
+            },
+            methods:{
+            },
+            render:function(createElements){    //createElements 是一个方法， 调用它，能把指定的组件模板渲染为html结构
+                return createElements(login)
+            }
+            //return的结果，回替换页面中 el指定的那个 容器
+        })
+    </script>
+</body>
+</html>
