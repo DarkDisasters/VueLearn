@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     entry: path.join(__dirname, './src/main.js'),
@@ -13,7 +14,8 @@ module.exports = {
         new htmlWebpackPlugin({                          //创建一个在 内存中 生成html 页面的插件
            template: path.join(__dirname, './src/index.html'),  //指定 模板页面，将来会根据指定的页面路径，去生成内存中的页面 
            filename: 'index.html'     ////指定生成页面的名称
-        })
+        }),
+        new VueLoaderPlugin()
     ],
     module:{
         rules:[
@@ -22,7 +24,8 @@ module.exports = {
             {test:/\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']},
             {test:/\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=7630&name=[hash:8]-[name].[ept]'},
             {test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader'},     // 处理字体文件的loader
-            {test: /\.js$/, use: 'babel-loader', exclude: /node_module/}  //配置Babel 来转换高级语法
+            {test: /\.js$/, use: 'babel-loader', exclude: /node_module/},  //配置Babel 来转换高级语法
+            {test: /\.vue$/, use: 'vue-loader'}
         ]
     },
     resolve: {
