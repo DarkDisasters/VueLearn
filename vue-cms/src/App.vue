@@ -1,55 +1,39 @@
 <template>
-    <div>
+    <div class="app-container">
         <h1>这是app组件</h1>
+        <!-- 顶部 Header 区域 -->
+        <mt-header fixed title="嘻嘻哈哈顶部"></mt-header>
+        <!-- 中间的路由 router-view 区域 -->
 
-
-        <mt-button type="danger" icon = "more" @click="show">default</mt-button>
-        <mt-button type="danger" size = "small" plain>default</mt-button>
-
-        <router-link to='/account'>Account</router-link>
-        <router-link to='/goodslist'>GoodsList</router-link>
-
-        <router-view></router-view>
+        <!-- 底部的Tabber 区域 -->
+        <nav class="mui-bar mui-bar-tab">
+			<router-link class="mui-tab-item" to="./home">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="/member">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">会员</span>
+			</router-link>
+            <router-link class="mui-tab-item" to="/shopcar">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">购物车</span>
+			</router-link>
+			<router-link class="mui-tab-item" to="/search">
+				<span class="mui-icon mui-icon-search"></span>
+				<span class="mui-tab-label">搜索</span>
+			</router-link>
+		</nav>
     </div>
 </template>
 
 <script>
-    //导入Toast 组件
-    import {Toast} from 'mint-ui'
-
-    export default {
-        data(){
-            return {
-                toastInstance: null
-            };
-        },
-        created(){
-            this.getList()
-        },
-        methods: {
-            getList(){      
-                //模拟获取列表的 Ajax方法
-                //在获取数据之前，立即 弹出Toast 提示用户， 正在加载数据
-                this.show();
-
-                setTimeout(() => {
-                    //当3s过后，数据获取回来了，要把Toast移除
-                    this.toastInstance.close()
-                }, 3000)
-            },
-            show(){
-                this.toastInstance = Toast({
-                    message: 'this is message',
-                    duration: -1,         //如果是-1，不消失
-                    position: top,
-                    iconClass: "glyphicon glyphicon-heart",     //设置 图标的类
-                    className: 'myToast',      //自定义Toast的样式，需要自己提供一个类名
-                })
-            }
-        },
-    }
+    
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .app-container{
+        padding-top: 40px;
+    }
 </style>
+
