@@ -10,21 +10,21 @@
         </mt-swipe>
 
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
                     <img src="../../imgs/menu1.png" alt="">
-                    <div class="mui-media-body">Home</div></a></li>
+                    <div class="mui-media-body">新闻资讯</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../imgs/menu2.png" alt="">
-                    <div class="mui-media-body">Email</div></a></li>
+                    <div class="mui-media-body">图片分享</div></a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../imgs/menu3.png" alt="">
-                    <div class="mui-media-body">Chat</div></a></li>
+                    <div class="mui-media-body">商品购买</div></a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../imgs/menu4.png" alt="">
-                    <div class="mui-media-body">location</div></a></li>
+                    <div class="mui-media-body">留言反馈</div></a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../imgs/menu5.png" alt="">
-                    <div class="mui-media-body">Search</div></a></li>
+                    <div class="mui-media-body">联系我们</div></a></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                     <img src="../../imgs/menu6.png" alt="">
                     <div class="mui-media-body">Phone</div></a></li>
