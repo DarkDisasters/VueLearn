@@ -11,6 +11,7 @@
         v-leave-to  【这是一个时间点】是动画离开之后离开的终止状态，此时元素的动画已经结束了 */
         .v-enter,
         .v-leave-to{
+            /* 初始位置在150px，此时由于opacity为0，看不见，经过1s过渡，在150px的h3由显示到淡出（opacity=0），而原有的h3出现了 */
             opacity: 0;
             transform: translate(150px);
         }

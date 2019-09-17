@@ -6,12 +6,14 @@
 </head>
 <body>
     <div id = 'app'>
+            <!-- 父组件向子组件传递方法，使用的是 事件绑定机制； -->
         <coml @func = 'show'></coml>
     </div>
 
     <template id = "temp1">
         <div>
             <h1>子组件</h1>
+            
             <input type="button" @click = 'myclick' value = '这个是子组件的按钮，点击它，触发父组件传过来的func方法'>
         </div>
     </template>

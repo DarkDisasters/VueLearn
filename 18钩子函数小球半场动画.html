@@ -31,7 +31,6 @@
             },
             methods:{
                 //动画钩子函数的第一个参数:el表示要执行动画的那个DOM元素，可以认为el是通过document.getElementById()得到的
-                //可以认为el 是通过 document.getElementById('') 方式获得的
                 beforeEnter(el){
                      //beforeEnter 表示动画入场之前，此时，动画尚未开始，可以在beforeEnter中，设置元素开始动画之前的起始样式
                     el.style.transform = "translate(0,0)"    
@@ -41,7 +40,7 @@
                     el.offsetWidth
                     //enter 表示动画 开始之后的 样式，这里，可以设置小球完成动画之后的结束状态
                     el.style.transform = "translate(150px, 450px)"
-                    el.style.transition = "all 1s ease"
+                    el.style.transition = "all 2s ease"
                     
                     //这里的done， 其实就是 afterEnter 这个函数，也就是说done是afterEneter的调用
                     done()

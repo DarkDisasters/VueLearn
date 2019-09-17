@@ -9,6 +9,7 @@ Vue.use(VueRouter)
 import VueResource from 'vue-resource'
 // 2.2 安装
 Vue.use(VueResource)
+Vue.http.options.root = '/root'
 
 //导入mui的样式
 import './lib/mui/css/mui.min.css'

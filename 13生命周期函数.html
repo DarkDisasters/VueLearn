@@ -40,13 +40,13 @@
                 },
                 beforeMount() {
                     //这是遇到的第3个生命周期函数，表示模板已经编译完成，但是尚未把模板渲染到页面中去
-                    console.log(document.getElementById('h3').innerText)
+                    console.log('beforeMount',document.getElementById('h3').innerText)
                     //在beforeMount执行的时候，页面中的元素没有被真正替换过来，只是之前的一些模板字符串
                     
                 },
                 mounted() {
                     //这是遇到的第四个生命周期函数，表示内存中的模板，已经真实的挂载到了浏览器的页面中，用户已经看到了渲染好的页面
-                    console.log(document.getElementById('h3').innerText)
+                    console.log('mounted',document.getElementById('h3').innerText)
                     //注意：mounted是实例创建中的最后一个生命周期函数，当执行完mounted，实例就完全被创建好了
                 },
                 beforeUpdate() {

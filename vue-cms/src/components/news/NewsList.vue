@@ -45,7 +45,27 @@
 
 <script>
 export default {
-    
+    data: function(){
+        return {
+            newsList: []
+        }
+    },
+    created(){
+        this.getNewsList()
+    },
+    methods: {
+        getNewsList(){
+            this.$http.get("api/getnewslist").then(result => {
+                if(result.body.status === 0){
+                    //没有失败，应该把数据保存在data上
+                    this.newsList = result.body.message
+                }
+                else{
+                    Toast('获取新闻列表失败！')
+                }
+            })
+        }
+    }
 }
 </script>
 
